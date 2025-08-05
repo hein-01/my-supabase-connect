@@ -208,67 +208,39 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8 text-foreground">Popular Products</h2>
           
-          <div className="relative group">
-            <Swiper
-              spaceBetween={10}
-              slidesPerView="auto"
-              loop={true}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-                reverseDirection: false,
-              }}
-              navigation={{
-                nextEl: '.swiper-button-next-products',
-                prevEl: '.swiper-button-prev-products',
-              }}
-              allowTouchMove={true}
-              grabCursor={true}
-              touchRatio={1}
-              modules={[Autoplay, Navigation]}
-              className="popular-products-swiper !overflow-visible"
-            >
-              {[
-                { id: 1, image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=320&h=70&fit=crop", name: "Laptop Computer" },
-                { id: 2, image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=320&h=70&fit=crop", name: "MacBook Pro" },
-                { id: 3, image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=320&h=70&fit=crop", name: "Gaming Laptop" },
-                { id: 4, image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=320&h=70&fit=crop", name: "Developer Setup" },
-                { id: 5, image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=320&h=70&fit=crop", name: "Glass Desk Setup" },
-                { id: 6, image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=320&h=70&fit=crop", name: "Smartphone" },
-                { id: 7, image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=320&h=70&fit=crop", name: "Tablet Device" },
-                { id: 8, image: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=320&h=70&fit=crop", name: "Wireless Headphones" },
-                { id: 9, image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=320&h=70&fit=crop", name: "Office Chair" },
-                { id: 10, image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=320&h=70&fit=crop", name: "Coffee Maker" },
-                { id: 11, image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=320&h=70&fit=crop", name: "Living Room Set" },
-                { id: 12, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=320&h=70&fit=crop", name: "Running Shoes" }
-              ].map((product) => (
-                <SwiperSlide key={product.id} className="!w-[320px]">
-                  <div className="block relative rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer group">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-[320px] h-[70px] object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {product.name}
-                    </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
+            {[
+              { id: 1, image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=320&h=70&fit=crop", name: "Laptops", bgColor: "bg-pink-500" },
+              { id: 2, image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=320&h=70&fit=crop", name: "MacBooks", bgColor: "bg-pink-500" },
+              { id: 3, image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=320&h=70&fit=crop", name: "Gaming", bgColor: "bg-pink-500" },
+              { id: 4, image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=320&h=70&fit=crop", name: "Workstations", bgColor: "bg-gradient-to-r from-orange-400 to-orange-500" },
+              { id: 5, image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=320&h=70&fit=crop", name: "Desks", bgColor: "bg-gradient-to-r from-teal-400 to-orange-400" },
+              { id: 6, image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=320&h=70&fit=crop", name: "Phones", bgColor: "bg-gradient-to-r from-teal-500 to-orange-500" },
+              { id: 7, image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=320&h=70&fit=crop", name: "Tablets", bgColor: "bg-gradient-to-r from-orange-500 to-orange-600" },
+              { id: 8, image: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=320&h=70&fit=crop", name: "Audio", bgColor: "bg-gradient-to-r from-teal-400 to-orange-400" },
+              { id: 9, image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=320&h=70&fit=crop", name: "Furniture", bgColor: "bg-gradient-to-r from-purple-500 to-purple-600" },
+              { id: 10, image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=320&h=70&fit=crop", name: "Appliances", bgColor: "bg-gradient-to-r from-purple-500 to-purple-600" },
+              { id: 11, image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=320&h=70&fit=crop", name: "Home", bgColor: "bg-gradient-to-r from-purple-500 to-purple-600" },
+              { id: 12, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=320&h=70&fit=crop", name: "Footwear", bgColor: "bg-gradient-to-r from-purple-500 to-purple-600" }
+            ].map((product) => (
+              <div key={product.id} className="relative rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer group">
+                <div className={`absolute inset-0 ${product.bgColor} opacity-80`}></div>
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-[320px] h-[70px] object-cover"
+                />
+                <div className="absolute inset-0 flex flex-col justify-between p-3 text-white">
+                  <div>
+                    <h3 className="text-sm font-semibold">{product.name}.</h3>
                   </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-            
-            {/* Custom Navigation Buttons */}
-            <button className="swiper-button-prev-products absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-gray-700">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-              </svg>
-            </button>
-            
-            <button className="swiper-button-next-products absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-gray-700">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-              </svg>
-            </button>
+                  <div className="flex items-center text-xs">
+                    <span className="underline">See Shops</span>
+                    <span className="ml-1">→</span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
