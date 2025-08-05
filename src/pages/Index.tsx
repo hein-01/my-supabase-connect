@@ -250,8 +250,8 @@ const Index = () => {
           {/* Full Width Banner */}
           <div className="mt-2.5">
             <a 
-              href="#banner" 
-              className="relative rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group block hover:scale-105 w-full"
+              href="#all-products" 
+              className="relative rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer group block w-full"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 opacity-80"></div>
               <img
@@ -259,14 +259,8 @@ const Index = () => {
                 alt="Full width banner"
                 className="w-full h-[35px] object-cover"
               />
-              <div className="absolute inset-0 flex flex-col justify-between p-3 text-white">
-                <div>
-                  <h3 className="text-sm font-semibold">Shop All Categories.</h3>
-                </div>
-                <div className="flex items-center text-xs">
-                  <span className="underline">Explore</span>
-                  <span className="ml-1">→</span>
-                </div>
+              <div className="absolute inset-0 flex items-center justify-center text-white">
+                <h3 className="text-sm font-semibold">See All Products</h3>
               </div>
             </a>
           </div>
