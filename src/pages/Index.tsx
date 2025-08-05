@@ -210,20 +210,24 @@ const Index = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
             {[
-              { id: 1, image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=320&h=70&fit=crop", name: "Laptops", bgColor: "bg-pink-500" },
-              { id: 2, image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=320&h=70&fit=crop", name: "MacBooks", bgColor: "bg-pink-500" },
-              { id: 3, image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=320&h=70&fit=crop", name: "Gaming", bgColor: "bg-pink-500" },
-              { id: 4, image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=320&h=70&fit=crop", name: "Workstations", bgColor: "bg-gradient-to-r from-orange-400 to-orange-500" },
-              { id: 5, image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=320&h=70&fit=crop", name: "Desks", bgColor: "bg-gradient-to-r from-teal-400 to-orange-400" },
-              { id: 6, image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=320&h=70&fit=crop", name: "Phones", bgColor: "bg-gradient-to-r from-teal-500 to-orange-500" },
-              { id: 7, image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=320&h=70&fit=crop", name: "Tablets", bgColor: "bg-gradient-to-r from-orange-500 to-orange-600" },
-              { id: 8, image: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=320&h=70&fit=crop", name: "Audio", bgColor: "bg-gradient-to-r from-teal-400 to-orange-400" },
-              { id: 9, image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=320&h=70&fit=crop", name: "Furniture", bgColor: "bg-gradient-to-r from-purple-500 to-purple-600" },
-              { id: 10, image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=320&h=70&fit=crop", name: "Appliances", bgColor: "bg-gradient-to-r from-purple-500 to-purple-600" },
-              { id: 11, image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=320&h=70&fit=crop", name: "Home", bgColor: "bg-gradient-to-r from-purple-500 to-purple-600" },
-              { id: 12, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=320&h=70&fit=crop", name: "Footwear", bgColor: "bg-gradient-to-r from-purple-500 to-purple-600" }
+              { id: 1, image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=320&h=70&fit=crop", name: "Laptops", bgColor: "bg-pink-500", link: "#laptops" },
+              { id: 2, image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=320&h=70&fit=crop", name: "MacBooks", bgColor: "bg-pink-500", link: "#macbooks" },
+              { id: 3, image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=320&h=70&fit=crop", name: "Gaming", bgColor: "bg-pink-500", link: "#gaming" },
+              { id: 4, image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=320&h=70&fit=crop", name: "Workstations", bgColor: "bg-gradient-to-r from-orange-400 to-orange-500", link: "#workstations" },
+              { id: 5, image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=320&h=70&fit=crop", name: "Desks", bgColor: "bg-gradient-to-r from-teal-400 to-orange-400", link: "#desks" },
+              { id: 6, image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=320&h=70&fit=crop", name: "Phones", bgColor: "bg-gradient-to-r from-teal-500 to-orange-500", link: "#phones" },
+              { id: 7, image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=320&h=70&fit=crop", name: "Tablets", bgColor: "bg-gradient-to-r from-orange-500 to-orange-600", link: "#tablets" },
+              { id: 8, image: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=320&h=70&fit=crop", name: "Audio", bgColor: "bg-gradient-to-r from-teal-400 to-orange-400", link: "#audio" },
+              { id: 9, image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=320&h=70&fit=crop", name: "Furniture", bgColor: "bg-gradient-to-r from-purple-500 to-purple-600", link: "#furniture" },
+              { id: 10, image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=320&h=70&fit=crop", name: "Appliances", bgColor: "bg-gradient-to-r from-purple-500 to-purple-600", link: "#appliances" },
+              { id: 11, image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=320&h=70&fit=crop", name: "Home", bgColor: "bg-gradient-to-r from-purple-500 to-purple-600", link: "#home" },
+              { id: 12, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=320&h=70&fit=crop", name: "Footwear", bgColor: "bg-gradient-to-r from-purple-500 to-purple-600", link: "#footwear" }
             ].map((product) => (
-              <div key={product.id} className="relative rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer group">
+              <a 
+                key={product.id} 
+                href={product.link}
+                className="relative rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group block hover:scale-95"
+              >
                 <div className={`absolute inset-0 ${product.bgColor} opacity-80`}></div>
                 <img
                   src={product.image}
@@ -239,8 +243,18 @@ const Index = () => {
                     <span className="ml-1">→</span>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
+          </div>
+          
+          {/* See More Link */}
+          <div className="text-center mt-8">
+            <a 
+              href="#all-products" 
+              className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200"
+            >
+              See More
+            </a>
           </div>
         </div>
       </section>
