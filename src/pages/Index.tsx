@@ -226,7 +226,7 @@ const Index = () => {
               <a 
                 key={product.id} 
                 href={product.link}
-                className="relative rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group block hover:scale-95"
+                className="relative rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group block hover:scale-105"
               >
                 <div className={`absolute inset-0 ${product.bgColor} opacity-80`}></div>
                 <img
@@ -247,13 +247,27 @@ const Index = () => {
             ))}
           </div>
           
-          {/* See More Link */}
-          <div className="text-center mt-8">
+          {/* Full Width Banner */}
+          <div className="mt-2.5">
             <a 
-              href="#all-products" 
-              className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200"
+              href="#banner" 
+              className="relative rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group block hover:scale-105 w-full"
             >
-              See More
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 opacity-80"></div>
+              <img
+                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1280&h=35&fit=crop"
+                alt="Full width banner"
+                className="w-full h-[35px] object-cover"
+              />
+              <div className="absolute inset-0 flex flex-col justify-between p-3 text-white">
+                <div>
+                  <h3 className="text-sm font-semibold">Shop All Categories.</h3>
+                </div>
+                <div className="flex items-center text-xs">
+                  <span className="underline">Explore</span>
+                  <span className="ml-1">→</span>
+                </div>
+              </div>
             </a>
           </div>
         </div>
