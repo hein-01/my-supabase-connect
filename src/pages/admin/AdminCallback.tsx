@@ -40,13 +40,37 @@ export default function AdminCallback() {
             });
             navigate('/admin/dashboard');
           } else {
-            await supabase.auth.signOut();
-            toast({
-              title: "Access Denied",
-              description: "Admin privileges required.",
-              variant: "destructive",
-            });
-            navigate('/admin/login');
+            // Try to auto-provision admin for authorized emails
+            try {
+              const { data: provisionResult } = await supabase.rpc('provision_admin_user', {
+                user_email: data.session.user.email,
+                admin_role_input: 'admin'
+              });
+
+              if ((provisionResult as any)?.success) {
+                toast({
+                  title: "Success",
+                  description: "Admin access granted! Welcome to the admin panel!",
+                });
+                navigate('/admin/dashboard');
+              } else {
+                await supabase.auth.signOut();
+                toast({
+                  title: "Access Denied", 
+                  description: (provisionResult as any)?.error || "Admin privileges required.",
+                  variant: "destructive",
+                });
+                navigate('/admin/login');
+              }
+            } catch (provisionError: any) {
+              await supabase.auth.signOut();
+              toast({
+                title: "Access Denied",
+                description: "Admin privileges required.",
+                variant: "destructive",
+              });
+              navigate('/admin/login');
+            }
           }
         } else {
           navigate('/admin/login');

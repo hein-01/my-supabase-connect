@@ -347,6 +347,10 @@ export type Database = {
         }
         Returns: undefined
       }
+      provision_admin_user: {
+        Args: { admin_role_input?: string; user_email: string }
+        Returns: Json
+      }
     }
     Enums: {
       admin_role: "super_admin" | "admin" | "moderator"
