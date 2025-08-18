@@ -32,12 +32,20 @@ export default function AdminAuthForm() {
       
       const redirectUrl = `${window.location.origin}/admin/callback`;
       
-      const { error } = await supabase.auth.signInWithOAuth({
+      const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: redirectUrl
+          redirectTo: redirectUrl,
+          skipBrowserRedirect: true
         }
       });
+
+      if (error) throw error;
+
+      if (data?.url) {
+        const target = window.top ?? window;
+        target.location.href = data.url;
+      }
 
       if (error) throw error;
     } catch (error: any) {
