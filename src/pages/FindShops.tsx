@@ -60,27 +60,14 @@ export default function FindShops() {
   const fetchBusinesses = async () => {
     setLoading(true);
     try {
-      let query = supabase
-        .from("businesses")
-        .select("*")
-        .order("rating", { ascending: false });
-
-      if (searchTerm) {
-        query = query.or(`name.ilike.%${searchTerm}%,description.ilike.%${searchTerm}%`);
-      }
-
-      if (selectedCategory !== "all") {
-        query = query.eq("category", selectedCategory);
-      }
-
-      if (locationFilter) {
-        query = query.or(`city.ilike.%${locationFilter}%,state.ilike.%${locationFilter}%`);
-      }
-
-      const { data, error } = await query;
+      const { data, error } = await supabase.rpc('get_public_businesses', {
+        search_term: searchTerm || null,
+        category_filter: selectedCategory !== 'all' ? selectedCategory : null,
+        location_filter: locationFilter || null,
+      });
 
       if (error) throw error;
-      setBusinesses(data || []);
+      setBusinesses((data as any) || []);
     } catch (error) {
       console.error("Error fetching businesses:", error);
       toast({

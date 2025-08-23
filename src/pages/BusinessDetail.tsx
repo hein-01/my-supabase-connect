@@ -60,21 +60,32 @@ export default function BusinessDetail() {
 
   const fetchBusiness = async () => {
     try {
+      // Try full details (requires auth)
       const { data, error } = await supabase
         .from("businesses")
         .select("*")
         .eq("id", id)
-        .single();
+        .maybeSingle();
 
       if (error) throw error;
-      setBusiness(data);
-    } catch (error) {
-      console.error("Error fetching business:", error);
-      toast({
-        title: "Error",
-        description: "Business not found.",
-        variant: "destructive",
-      });
+      setBusiness(data as any);
+    } catch (error: any) {
+      console.warn("Falling back to public business fetch:", error?.message || error);
+      try {
+        const { data: publicData, error: publicError } = await supabase.rpc(
+          'get_public_business_by_id',
+          { business_id: id }
+        );
+        if (publicError) throw publicError;
+        setBusiness((publicData as any)?.[0] || null);
+      } catch (fallbackErr) {
+        console.error("Error fetching business:", fallbackErr);
+        toast({
+          title: "Error",
+          description: "Business not found.",
+          variant: "destructive",
+        });
+      }
     } finally {
       setLoading(false);
     }
